@@ -19,3 +19,8 @@
 
 # Go workspace file
 go.work
+
+/server.exe
+/config.toml
+/.idea
+/go.sum

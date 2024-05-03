@@ -1,0 +1,39 @@
+# 应用配置文件，定义了服务器、数据库和缓存的相关配置
+[Server]
+# 监听的端口号，应用启动后将通过该端口提供服务
+Port = 8888
+# 运行环境，可选值包括"debug"、"release"等，用于控制应用的运行模式
+Mode = "debug"
+
+# MYSQL数据库配置段，包含了连接数据库所需的所有信息
+[Db.MYSQL]
+# 数据库地址，即MySQL服务器的IP地址或域名
+Addr = "127.0.0.1"
+# 配置信息，用于指定数据库连接的额外参数，如字符集和时间解析等
+Config = "charset=utf8mb4&parseTime=True&loc=Local"
+# 数据库名称，连接到MySQL后将使用的数据库
+DbName = "easyGinAdmin"
+# 最大空闲连接数，用于控制数据库连接池中保持的空闲连接数量
+MaxIdleConns = 10
+# 最大打开连接数，限制数据库连接池中允许的最大连接数量
+MaxOpenConns = 100
+# 端口号，MySQL服务器监听的端口
+Port = 3306
+# 用户名，用于数据库认证
+Username = "easyGinAdmin"
+# 密码，对应数据库用户名的密码
+Password = "easyGinAdmin"
+
+# Redis缓存配置，用于应用的缓存需求
+[Cache.Redis]
+# Redis服务器地址，格式为"主机:端口"
+Addr = "127.0.0.1:6379"
+# 数据库索引，Redis支持多个数据库，通过索引进行区分
+Db = 5
+# 连接密码，如果Redis服务器配置了密码认证，则此处填写密码
+Password = ""
+
+# Log日志配置，用于记录应用运行时的日志信息
+[Log]
+# 日志级别，可选值包括"debug"、"info"、"warn"、"error"、"fatal"等，用于控制日志输出的级别
+Level = "info"
