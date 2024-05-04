@@ -2,7 +2,7 @@ package internal
 
 import (
 	"github.com/gin-gonic/gin"
-	"server/internal/api"
+	"server/internal/controller"
 	r "server/internal/router"
 	"server/internal/service"
 )
@@ -13,7 +13,7 @@ func Initialization(group gin.RouterGroup) {
 	// 初始化服务层，进行一些必要的服务配置。
 	service.Initialization()
 	// 初始化API层，注册API相关的中间件和处理函数。
-	api.Initialization()
+	controller.Initialization()
 	// 配置路由，定义API的路由结构。
 	router(group)
 }
@@ -22,7 +22,7 @@ func Initialization(group gin.RouterGroup) {
 // group: 用于定义路由前缀的gin.RouterGroup，此参数确定了API路由的基础URL路径。
 func router(group gin.RouterGroup) {
 	// 创建处理前端请求的路由分组，为前端请求定义了一级路由路径。
-	frontend := group.Group("/api")
+	api := group.Group("/api")
 	// 配置前端路由，注册前端相关的所有路由路径和处理函数。
-	r.FrontendRouter(frontend)
+	r.Api(api)
 }

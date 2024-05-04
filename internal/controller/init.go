@@ -1,4 +1,4 @@
-package api
+package controller
 
 import (
 	"server/internal/service"
@@ -6,5 +6,5 @@ import (
 )
 
 func Initialization() {
-	Api = &api{srv: service.Frontend, log: log.GetLog()}
+	Api = &api{srv: service.Api, log: log.GetLog()}
 }

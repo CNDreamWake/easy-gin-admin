@@ -2,12 +2,12 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"server/internal/api"
+	"server/internal/controller"
 )
 
-func FrontendRouter(group *gin.RouterGroup) {
+func Api(group *gin.RouterGroup) {
 	{
-		c := api.Api
+		c := controller.Api
 		group.GET("/test", c.Test)
 	}
 }
